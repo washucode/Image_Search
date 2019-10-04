@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'show_images',
 ]
 
 MIDDLEWARE = [
@@ -85,10 +86,18 @@ WSGI_APPLICATION = 'MainPicture.wsgi.application'
 #     }
 # }
 
+
+
 DATABASES = {
-       'default': dj_database_url.config(
-           default=config('DATABASE_URL')
-       )
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'NAME': config('DB_NAME'),
+           'USER': config('DB_USER'),
+           'PASSWORD': config('DB_PASSWORD'),
+           'HOST': config('DB_HOST'),
+           'PORT': '',
+       }
+       
    }
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
