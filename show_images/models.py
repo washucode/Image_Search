@@ -20,6 +20,9 @@ class Image(models.Model):
      location_taken= models.ForeignKey(location)
      image_category = models.ForeignKey(Category)
 
+     def save_image(self):
+        return self.save()
+
 
 
 
