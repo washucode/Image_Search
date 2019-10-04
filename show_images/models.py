@@ -18,8 +18,8 @@ class Image(models.Model):
      image_name = models.CharField(max_length=30)
      description = models.TextField()
      location_taken= models.ForeignKey(location)
-     image_category = models.ManyToManyField(Category)
-     
+     image_category = models.ForeignKey(Category)
+
 
 
 
