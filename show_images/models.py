@@ -7,6 +7,12 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class location(models.Model):
+     location = models.CharField(max_length=60)
+
+     def __str__(self):
+         return self.location
+
 
 
 # Create your models here.

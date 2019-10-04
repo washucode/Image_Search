@@ -10,3 +10,5 @@ class CategoryTestCase(TestCase):
     
     def test_instance(self):
         self.assertTrue(isinstance(self.cat1,Category))
+
+    
