@@ -22,6 +22,8 @@ class Image(models.Model):
 
      def save_image(self):
         return self.save()
+     def delete_image(self):
+        return self.delete()
 
 
 
