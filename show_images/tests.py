@@ -53,3 +53,12 @@ class ImageTestCase(TestCase):
         all_images = Image.objects.all()
         self.assertEqual(len(all_images),1)
 
+    def  test_update_image(self):
+         self.new_image.save_image()
+
+         saved_image = Image.objects.filter(image_name='herme')
+        
+         self.new_image.update_image(image_name ='esther')
+      
+         self.assertTrue(new.image.image_name =='esther')
+         
