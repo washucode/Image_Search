@@ -1,8 +1,26 @@
 {%extends 'base.html'%}
 
+
+
 {% block content %}
 
-<div class="container">
+
+<div class="container ">
+    <div class="row mt-20">
+        {% if images %}
+        <div class="col-md-6 text-center">
+            <h2 style="color:black;">Found {{ images|length }} of searched term {{message}}</h2>
+        </div>
+        {%else%}
+        <div class="col-md-6 text-center">
+            <h2 style="color:black;"> Found 0 images for the search term {{message}}</h2>
+      
+        </div>
+        {% endif %}
+          
+       
+    </div>
+
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-8 text-center">
@@ -27,15 +45,32 @@
           
                 </ul>
           </nav>
+          
         </div>
         <div class="col-md-2"></div>
 
-        <div class="row">
-            
-        </div>
+       
     </div>
 
+   
 
+
+    
+
+
+</div>
+
+    <div class="row">
+
+        {% if  images %}
+          {% for image in images %}
+            <div class="col-sm-6 col-md-3">
+                <img src="{{image.image.url}}" alt="searched image">
+            </div>
+          {% endfor %}
+        {% endif %}
+        
+    </div>
 </div>
 
 {% endblock %}
