@@ -35,7 +35,7 @@ class Image(models.Model):
         id_length = len(category_id)
         image_s = []
         for ids in range(id_length):
-            found_images = cls.objects.filter(image_category_in=[category_id[ids].id])
+            found_images = cls.objects.filter(image_category__in=[category_id[ids].id])
             image_s.append(found_images)
         return image_s
 
@@ -46,7 +46,7 @@ class Image(models.Model):
         id_length = len(location_id)
         image_s = []
         for ids in range(id_length):
-            found_images = cls.objects.filter(location_taken_in=[location_id[ids].id])
+            found_images = cls.objects.filter(location_taken__in=[location_id[ids].id])
             image_s.append(found_images)
         return image_s
 
