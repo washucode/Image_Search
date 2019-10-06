@@ -44,7 +44,7 @@ def other(request):
     location_images = Image.find_by_location(locationterm)
     return render(request,'location.html',{'images':location_images}
     )
-def other(request):
+def out(request):
     locationterm = 'out'
     location_images = Image.find_by_location(locationterm)
     return render(request,'location.html',{'images':location_images}
