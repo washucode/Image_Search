@@ -5,7 +5,8 @@ from . import views
 
 urlpatterns=[
     url('^$',views.home, name="allphotos"),
-
+    url('^search/',views.search_results, name="search_results"),
+    
     
 ]
 
