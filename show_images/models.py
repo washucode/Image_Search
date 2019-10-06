@@ -29,6 +29,27 @@ class Image(models.Model):
      def allphotos(cls):
          images = cls.objects.all()
          return images
+     @classmethod
+     def search_by_category(cls,search_term):
+        category_id = Category.objects.filter(name__icontains=search_term)
+        id_length = len(category_id)
+        image_s = []
+        for ids in range(id_length):
+            found_images = cls.objects.filter(image_category_in=[category_id[ids].ids])
+            image_s.append(found_images)
+        return image_s
+
+        
+     @classmethod
+     def find_by_location(cls,locationterm):
+        location_id = location.objects.filter(location_name__icontains=locationterm)
+        id_length = len(location_id)
+        image_s = []
+        for ids in range(id_length):
+            found_images = cls.objects.filter(location_taken_in=[location_id[ids].ids])
+            image_s.append(found_images)
+        return image_s
+
 
     
 
