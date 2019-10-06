@@ -23,9 +23,31 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
 
-# def nairobi(request):
-#     locationterm = 'nairobi'
-#     location_images = Image.find_by_location(locationterm)
-#     return render(request,'nairobi.html',{'images':location_images})
+def nairobi(request):
+    locationterm = 'nairobi'
+    location_images = Image.find_by_location(locationterm)
+    return render(request,'location.html',{'images':location_images}
+    )
+
+def mombasa(request):
+    locationterm = 'mombasa'
+    location_images = Image.find_by_location(locationterm)
+    return render(request,'location.html',{'images':location_images}
+    )
+def upcountry(request):
+    locationterm = 'upcountry'
+    location_images = Image.find_by_location(locationterm)
+    return render(request,'location.html',{'images':location_images}
+    )
+def other(request):
+    locationterm = 'other'
+    location_images = Image.find_by_location(locationterm)
+    return render(request,'location.html',{'images':location_images}
+    )
+def other(request):
+    locationterm = 'out'
+    location_images = Image.find_by_location(locationterm)
+    return render(request,'location.html',{'images':location_images}
+    )
 
 
