@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Carme&display=swap');
+
+body{
+    
+    font-family: 'Carme', sans-serif;
+    color:white;
+}
+
+.navbar-brand{
+   font-family: 'Cabin Sketch', cursive;
+   color:white;
+}
+
+
+ 
+h1{
+    font-family: 'Cabin Sketch', cursive;
+    font-size:70px;
+    color:black;
+}
+

@@ -7,3 +7,5 @@ def home(request):
    
     images = Image.allphotos()
     return render(request, 'allphotos.html')
+
+    
