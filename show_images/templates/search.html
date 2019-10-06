@@ -66,6 +66,7 @@
           {% for image in images %}
             <div class="col-sm-6 col-md-3">
                 <img src="{{image.image.url}}" alt="searched image">
+                <p>{{image.image_name}}</p>
             </div>
           {% endfor %}
         {% endif %}
