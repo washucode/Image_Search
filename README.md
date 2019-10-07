@@ -20,7 +20,7 @@ git clone https://github.com/washucode/Image_Search.git
 ### Pre-requisites
 
 1. What you need
-* Python version 3.6
+* Python version 3.6  [Installation guide](https://realpython.com/installing-python/)
 * postgres database
 
 ### Installation
