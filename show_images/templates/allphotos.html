@@ -30,40 +30,47 @@
         </div>
         <div class="col-md-2"></div>
 
-        <div class="row">
+       
+    </div>
+   
+  {%if images%}
+  
+    
+    <div class="row">
+            {% for image in images %}
             
-        </div>
-    </div>
-    {%if images%}
-    {% for image in images%}
-    <div class="card" data-toggle="modal" data-target="#{{image.id}}">
-      <img src="{{image.image.url}}" alt="{{image.image.name}}" class="card-img">
-    </div>
-
-    <!-- .modal-profile -->
-	<div class="modal fade modal-profile" tabindex="-1" role="dialog" aria-labelledby="modalProfile" id="{{image.id}}" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                        <div class="modal-header">
-                              <button class="close" type="button" data-dismiss="modal">×</button>
-                              <h3 class="modal-title">{{image.name}}</h3>
+          <div class="col-sm-4 "  data-toggle="modal" data-target="#{{image.id}}">
+               <img src="{{image.image.url}}" alt="{{image.image.name}}" style = "width: 250px; height:250px"  class="img-responsive" >
+          </div>
+          <!-- .modal-profile -->
+        <div class="modal fade modal-profile" tabindex="-1" role="dialog" aria-labelledby="modalProfile" id="{{image.id}}" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                              <div class="modal-header">
+                                    <button class="close" type="button" data-dismiss="modal">×</button>
+                                    <h3 class="modal-title">{{image.name}}</h3>
+                              </div>
+                              <div class="modal-body" style= "margin-left:25%;">
+                                    <img src="{{image.image.url}}" alt="{{image.name}}" class="img-fluid text-center " style= "width:50%;height:auto;">
+                                    <p style= 'color:black ; padding-top: 5%'><strong>Description: </strong> {{image.description}}</p>
+                                    <p  style= 'color:black'><strong>Location:</strong> {{image.location_taken}}</p>
+                                    <p style= 'color:black'> <strong>Category:</strong> : {{image.image_category}}</p>
+                              </div>
+                              <div class="modal-footer">
+                                    <button class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
                         </div>
-                        <div class="modal-body">
-                              <img src="{{image.image.url}}" alt="{{image.name}}" class="img-fluid">
-                              <p class="text-center">Description: {{image.description}}</p>
-                              <p class="text-center">Location: {{image.location_taken}}</p>
-                              <p class="text-center">catogory : {{image.image_category}}</p>
-                        </div>
-                        <div class="modal-footer">
-                              <button class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
+            
                   </div>
-      
             </div>
-	</div>
-      <!-- //.modal-profile -->
-      {% endfor%}
-      {% endif %}
+            <!-- //.modal-profile -->
+            {% endfor%}
+            
+    </div>
+    {% endif %}
+   
+
+    
 
 
 </div>
