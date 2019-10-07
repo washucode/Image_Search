@@ -28,13 +28,7 @@ class CategoryTestCase(TestCase):
         categories = Category.objects.all()
         self.assertTrue(len(categories) > 0)
 
-    def tearDown(self):
-        '''
-        Test delete category behaivour
-        
-        '''
-        Category.objects.all().delete()
-        
+    
     def test_update_category(self):
         '''
         Test if  Category object can be updated.
@@ -43,6 +37,24 @@ class CategoryTestCase(TestCase):
         self.category = Category.objects.filter(name = 'goodfood').update(name = "good good")
         self.category_u = Category.objects.get(name = 'good good')
         self.assertEqual(self.category_u.name,"good good")
+
+    def tearDown(self):
+        '''
+        Test delete category behaivour
+        
+        '''
+        Category.objects.all().delete()
+        
+
+    def test_delete_category(self):
+        '''
+        Test if category can be deleted from db.
+        '''
+        self.cat1.save_category()
+        self.category = Category.objects.get(id = 1)
+        self.category.delete_category()
+        self.assertTrue(len(Category.objects.all()) == 0)
+
 
 
  
@@ -61,8 +73,7 @@ class LocationTestCase(TestCase):
         locations = location.objects.all()
         self.assertTrue(len(locations) > 0)
 
-    def tearDown(self):
-       location.objects.all().delete()
+    
     
     def test_update_category(self):
         '''
@@ -72,6 +83,21 @@ class LocationTestCase(TestCase):
         self.location = location.objects.filter(location_name = 'Nairobi').update(location_name = "Kisumu")
         self.location_u = location.objects.get(location_name = 'Kisumu')
         self.assertEqual(self.location_u.location_name,"Kisumu")
+
+
+    def tearDown(self):
+       location.objects.all().delete()
+    
+    def test_delete_location(self):
+        '''
+        Test if the location can be deleted
+        '''
+        self.loc1.save_location()
+        self.loca = location.objects.get(location_name = 'Nairobi')
+        self.loca.delete_location()
+        self.assertTrue(len(location.objects.all()) == 0)
+    
+
 
     
 
@@ -103,6 +129,7 @@ class ImageTestCase(TestCase):
         Image.objects.all().delete() 
 
     def test_delete_image(self):
+
         self.new_image.save_image()
         self.image2 = Image(image = "herme.png",image_name = "herme",description = "morecool",image_category = self.cat1,location_taken = self.loc)
         self.image2.save_image()
@@ -110,12 +137,15 @@ class ImageTestCase(TestCase):
         all_images = Image.objects.all()
         self.assertEqual(len(all_images),1)
 
-    # def  test_update_image(self):
-    #      self.new_image.save_image()
+    def test_update_image(self):
+        '''
+        Test whether image can be updated.
+        '''
+        self.new_image.save_image()
+        self.image3 = Image.objects.filter(image_name= 'herme').update(image ="thisisher.png")
+        self.image_update= Image.objects.filter(image_name='herme')
+        self.assertEqual(self.image_update.image,"thisisher.png")
 
-    #      saved_image = Image.objects.filter(image_name='herme')
-        
-    #      self.new_image.update_image(image_name ='esther')
-      
-    #      self.assertTrue(new.image.image_name =='esther')
+
+    
          
