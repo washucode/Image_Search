@@ -1,6 +1,9 @@
 {%extends 'base.html'%}
 
 {% block content %}
+{{block.super}}
+
+
 
 <div class="container">
     <div class="row">
@@ -10,19 +13,19 @@
                 <ul class="pagination justify-content-center">
                  
                   <li class="page-item">
-                        <a class="page-link" href="">Nairobi</a>
+                        <a class="page-link" href="{%url 'nairobi'%}">Nairobi</a>
                   </li>
                   <li class="page-item">
-                        <a class="page-link" href="">Mombasa</a>
+                        <a class="page-link" href="{%url 'mombasa'%}">Mombasa</a>
                   </li>
                   <li class="page-item">
-                        <a class="page-link" href="">UpCountry</a>
+                        <a class="page-link" href="{%url 'upcountry'%}">UpCountry</a>
                   </li>
                   <li class="page-item">
-                    <a class="page-link" href="">Other Places</a>    
+                    <a class="page-link" href="{%url 'other'%}">Other Places</a>    
                   </li>
                   <li class="page-item">
-                        <a class="page-link" href="">Out of Kenya</a>    
+                        <a class="page-link" href="{%url 'out'%}">Out of Kenya</a>    
                   </li>
           
                 </ul>
@@ -57,8 +60,13 @@
                                     <p style= 'color:black'> <strong>Category:</strong> : {{image.image_category}}</p>
                               </div>
                               <div class="modal-footer">
-                                    <button class="btn btn-default" data-dismiss="modal">Close</button>
-                              </div>
+                                    <input class="form-control input-lg" type="text"
+                                         value="https://dashboard.heroku.com/apps/esimages{{image.image.url}}" id="{{image.id}}.url">
+                                     <button class="btn btn-success btn-sm" onclick="copyLink('{{image.id}}.url')">Copy</button>
+                                    
+                                     
+                                 </div>
+                              
                         </div>
             
                   </div>

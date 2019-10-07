@@ -5,7 +5,7 @@ This a personal gallery where users can view images on my personal online galler
 
 ## Author
 
-* **Esther WAchuka** - [washucode](https://github.com/washucode)
+* **Esther Wachuka** - [washucode](https://github.com/washucode)
 
 
 

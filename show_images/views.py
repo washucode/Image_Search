@@ -26,7 +26,7 @@ def search_results(request):
 def nairobi(request):
     locationterm = 'nairobi'
     location_images = Image.find_by_location(locationterm)
-    return render(request,'location.html',{'images':location_images}
+    return render(request,'location.html',{'images':location_images }
     )
 
 def mombasa(request):
