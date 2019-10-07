@@ -24,9 +24,9 @@ As a user of the application you will be able to:
 
 > + view different photos that interest you.
 > + click on a single photo to expand it and also view the details of the photo.
-> + search for different categories of photos.{use travel,wildlife and food to get a result}
-> + copy a link to the photo to share with my friends.
-> + view photos based on the location they were taken.
+> + search for different categories of photos.{use  search term travel,wildlife and food to get a result}
+> + copy a link to the photo to share with your friends.
+
 
 
 ### Pre-requisites
