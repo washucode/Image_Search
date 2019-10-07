@@ -4,12 +4,48 @@ from .models import Category,location,Image
 
 class CategoryTestCase(TestCase):
 
-    # setup
+   
     def setUp(self):
+        '''
+        set up instance
+
+        '''
         self.cat1= Category(name='goodfood')
     
     def test_instance(self):
+        '''
+        Test object instance of the model
+        
+        '''
         self.assertTrue(isinstance(self.cat1,Category))
+
+    def test_save_category(self):
+        '''
+        Test save category behaivour
+        
+        '''
+        self.cat1.save_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories) > 0)
+
+    def tearDown(self):
+        '''
+        Test delete category behaivour
+        
+        '''
+        Category.objects.all().delete()
+        
+    def test_update_category(self):
+        '''
+        Test if  Category object can be updated.
+        '''
+        self.cat1.save_category()
+        self.category = Category.objects.filter(name = 'goodfood').update(name = "good good")
+        self.category_u = Category.objects.get(name = 'good good')
+        self.assertEqual(self.category_u.name,"good good")
+
+
+ 
 
 
 class LocationTestCase(TestCase):
@@ -19,6 +55,27 @@ class LocationTestCase(TestCase):
 
     def test_instance_Location(self):
         self.assertTrue(isinstance(self.loc1,location))
+
+    def test_save_location(self):
+        self.loc1.save_location()
+        locations = location.objects.all()
+        self.assertTrue(len(locations) > 0)
+
+    def tearDown(self):
+       location.objects.all().delete()
+    
+    def test_update_category(self):
+        '''
+        Test if  location object can be updated.
+        '''
+        self.loc1.save_location()
+        self.location = location.objects.filter(location_name = 'Nairobi').update(location_name = "Kisumu")
+        self.location_u = location.objects.get(location_name = 'Kisumu')
+        self.assertEqual(self.location_u.location_name,"Kisumu")
+
+    
+
+ 
 
 class ImageTestCase(TestCase):
 
