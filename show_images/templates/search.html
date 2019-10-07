@@ -3,75 +3,30 @@
 
 
 {% block content %}
+{{block.super}}
 
 
 <div class="container ">
-    <div class="row mt-20">
-        {% if images %}
-        <div class="col-md-6 text-center">
-            <h2 style="color:black;">Found {{ images|length }} of searched term {{message}}</h2>
-        </div>
-        {%else%}
-        <div class="col-md-6 text-center">
-            <h2 style="color:black;"> Found 0 images for the search term {{message}}</h2>
-      
-        </div>
-        {% endif %}
-          
-       
+
+    {%if searched_images%}
+    {% for image in searched_images%}
+
+    <div class="col-md-4 pt"  data-toggle="modal" data-target="#{{image.id}}" >
+            <div class="card "  style="width:16rem;">
+               <img src="{{image.image.url}}" alt="{{image.image.name}}"   class="card-img-top"  width="300" height='250'>
+            </div>
     </div>
+           
 
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-8 text-center">
-            <nav aria-label="">
-                <ul class="pagination justify-content-center">
-                 
-                  <li class="page-item">
-                        <a class="page-link" href="">Nairobi</a>
-                  </li>
-                  <li class="page-item">
-                        <a class="page-link" href="">Mombasa</a>
-                  </li>
-                  <li class="page-item">
-                        <a class="page-link" href="">UpCountry</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="">Other Places</a>    
-                  </li>
-                  <li class="page-item">
-                        <a class="page-link" href="">Out of Kenya</a>    
-                  </li>
-          
-                </ul>
-          </nav>
-          
-        </div>
-        <div class="col-md-2"></div>
+    {%endfor%}
 
-       
-    </div>
 
+    {% endif %}
+    
    
 
 
     
-
-
-</div>
-
-    <div class="row">
-
-        {% if  images %}
-          {% for image in images %}
-            <div class="col-sm-6 col-md-3">
-                <img src="{{image.image.url}}" alt="searched image">
-                <p>{{image.image_name}}</p>
-            </div>
-          {% endfor %}
-        {% endif %}
-        
-    </div>
 </div>
 
 {% endblock %}

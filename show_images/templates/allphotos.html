@@ -6,45 +6,21 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-8 text-center">
-            <nav aria-label="">
-                <ul class="pagination justify-content-center">
-                 
-                  <li class="page-item">
-                        <a class="page-link" href="{%url 'nairobi'%}">Nairobi</a>
-                  </li>
-                  <li class="page-item">
-                        <a class="page-link" href="{%url 'mombasa'%}">Mombasa</a>
-                  </li>
-                  <li class="page-item">
-                        <a class="page-link" href="{%url 'upcountry'%}">UpCountry</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="{%url 'other'%}">Other Places</a>    
-                  </li>
-                  <li class="page-item">
-                        <a class="page-link" href="{%url 'out'%}">Out of Kenya</a>    
-                  </li>
-          
-                </ul>
-          </nav>
-        </div>
-        <div class="col-md-2"></div>
-
-       
-    </div>
-   
+    
   {%if images%}
   
     
     <div class="row">
+
+      <h1 class="text-center" >ALL IMAGES</h1>
             {% for image in images %}
             
-          <div class="col-sm-4 "  data-toggle="modal" data-target="#{{image.id}}">
-               <img src="{{image.image.url}}" alt="{{image.image.name}}" style = "width: 250px; height:250px"  class="img-responsive" >
+          <div class="col-md-4 pt"  data-toggle="modal" data-target="#{{image.id}}" >
+                <div class="card "  style="width:16rem;">
+                   <img src="{{image.image.url}}" alt="{{image.image.name}}"   class="card-img-top"  width="300" height='250'>
+                </div>
           </div>
+               
           <!-- .modal-profile -->
         <div class="modal fade modal-profile" tabindex="-1" role="dialog" aria-labelledby="modalProfile" id="{{image.id}}" aria-hidden="true">
                   <div class="modal-dialog modal-lg">
@@ -53,11 +29,11 @@
                                     <button class="close" type="button" data-dismiss="modal">×</button>
                                     <h3 class="modal-title">{{image.name}}</h3>
                               </div>
-                              <div class="modal-body" style= "margin-left:25%;">
-                                    <img src="{{image.image.url}}" alt="{{image.name}}" class="img-fluid text-center " style= "width:50%;height:auto;">
-                                    <p style= 'color:black ; padding-top: 5%'><strong>Description: </strong> {{image.description}}</p>
-                                    <p  style= 'color:black'><strong>Location:</strong> {{image.location_taken}}</p>
-                                    <p style= 'color:black'> <strong>Category:</strong> : {{image.image_category}}</p>
+                              <div class="modal-body" >
+                                    <img src="{{image.image.url}}" alt="{{image.name}}" class="img-fluid text-center " style= "width:100%;height:auto;">
+                                    <p style= 'color:black ; padding-top: 5%; margin-left:25%;'><strong>Description: </strong> {{image.description}}</p>
+                                    <p  style= 'color:black; margin-left:25%;'><strong>Location:</strong> {{image.location_taken}}</p>
+                                    <p style= 'color:black; margin-left:25%;'> <strong>Category:</strong> : {{image.image_category}}</p>
                               </div>
                               <div class="modal-footer">
                                     <input class="form-control input-lg" type="text"
